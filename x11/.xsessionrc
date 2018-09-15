@@ -1,0 +1,8 @@
+#!/bin/sh
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
+if [ -s ~/.Xmodmap ]; then
+  xmodmap ~/.Xmodmap
+fi
