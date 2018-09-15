@@ -1,0 +1,21 @@
+[submodule "vim/pack/start/bufexplorer"]
+	path = vim/pack/start/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer
+[submodule "vim/pack/start/lightline.vim"]
+	path = vim/pack/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/pack/start/vim-commentary"]
+	path = vim/pack/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/pack/start/vim-fugitive"]
+	path = vim/pack/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/start/vim-gitgutter"]
+	path = vim/pack/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter/
+[submodule "vim/pack/start/vim-go"]
+	path = vim/pack/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/pack/start/vim-ripgrep"]
+	path = vim/pack/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep
