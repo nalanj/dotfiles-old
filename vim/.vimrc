@@ -64,7 +64,7 @@ endif
 let mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>w <C-w>
 
 " Fast close buffer
 nmap <leader>q :bd<cr>

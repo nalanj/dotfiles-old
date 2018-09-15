@@ -1,0 +1,5 @@
+[user]
+	email = alan.johnson@gmail.com
+	name = Alan Johnson
+[credential]
+	helper = store
