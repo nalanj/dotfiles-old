@@ -51,7 +51,7 @@ endif
 
 syntax enable
 set background=light
-colorscheme gruvbox
+colorscheme PaperColor
 
 " Some gui specific settings
 if has("gui_running")
@@ -105,7 +105,7 @@ augroup go
 augroup END
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.colorscheme = 'PaperColor'
 
 " copy and paste
 vmap <C-c> "+y

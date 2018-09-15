@@ -19,3 +19,6 @@
 [submodule "vim/pack/start/vim-ripgrep"]
 	path = vim/pack/start/vim-ripgrep
 	url = https://github.com/jremmen/vim-ripgrep
+[submodule "vim/.vim/pack/start/papercolor-theme"]
+	path = vim/.vim/pack/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme
