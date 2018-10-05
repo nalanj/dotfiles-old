@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+import sys
+import subprocess
+
+pr_prefix = "pr"
+
+if len(sys.argv) > 1:
+  name = "{}/{}".format(pr_prefix, sys.argv[1])
+else:
+  sys.exit("Must provide pr branch name")
+
+if len(sys.argv) > 2:
+  refspec = sys.argv[2]
+else:
+  refspec = "HEAD"
+
+subprocess.call(
+    ["git", "branch", name, "origin/master", "--no-track"]
+)
+subprocess.call(["git", "cherry-pick", refspec])
