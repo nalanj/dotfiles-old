@@ -1,5 +1,13 @@
+[alias]
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  s = status -s
+
+[core]
+  editor = vim
+
 [user]
 	email = alan.johnson@gmail.com
-	name = Alan Johnson
+  name = Alan Johnson
+
 [credential]
 	helper = store
