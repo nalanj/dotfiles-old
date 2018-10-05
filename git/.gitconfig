@@ -2,6 +2,9 @@
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   s = status -s
 
+  # Show unpushed
+  un = log master ^origin/master --no-merges --pretty=oneline --abbrev-commit
+
 [core]
   editor = vim
 
