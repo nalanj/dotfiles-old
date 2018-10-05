@@ -49,4 +49,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source .bash_prompt
+source $HOME/.bash_prompt
+
+export PATH=$HOME/bin:$PATH
