@@ -51,4 +51,5 @@ fi
 
 source $HOME/.bash_prompt
 
+export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
