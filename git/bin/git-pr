@@ -1,20 +1,28 @@
-#!/usr/bin/env python3
-import sys
-import subprocess
+#!/bin/bash
+set -e
 
-pr_prefix = "pr"
+if [[ "$#" -ne 2 ]]; then
+    echo "Usage git pr [name] [commit]"
+    exit
+fi
 
-if len(sys.argv) > 1:
-  name = "{}/{}".format(pr_prefix, sys.argv[1])
-else:
-  sys.exit("Must provide pr branch name")
+name="pr/$1"
+refspec=$2
 
-if len(sys.argv) > 2:
-  refspec = sys.argv[2]
-else:
-  refspec = "HEAD"
+orig_head=$(git rev-parse --abbrev-ref HEAD)
+changes=$(git status -s | wc -l)
 
-subprocess.call(
-    ["git", "branch", name, "origin/master", "--no-track"]
-)
-subprocess.call(["git", "cherry-pick", refspec])
+if [[ $changes -gt 0 ]]; then
+  echo "You have pending changes"
+  exit
+fi
+
+echo "* Creating PR branch $name"
+git branch $name origin/master --no-track
+git checkout -q $name
+
+echo "* Applying $refspec"
+git cherry-pick $refspec
+
+echo "* Back to $orig_head"
+git checkout -q $orig_head
