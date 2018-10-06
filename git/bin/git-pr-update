@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Updates the named pr from origin/master with a merge commit
+
+set -e
+
+if [[ "$#" -ne 1 ]]; then
+    echo "Usage: git pr-update [name]"
+    exit
+fi
+
+name="pr/$1"
+
+match_count=$(git branch | grep $name | wc -l)
+if [[ $match_count < 1 ]]; then
+  echo "No branch named $name exists"
+  exit
+fi
+
+orig_head=$(git rev-parse --abbrev-ref HEAD)
+changes=$(git status -s | wc -l)
+
+if [[ $changes -gt 0 ]]; then
+  echo "You have pending changes"
+  exit
+fi
+
+git checkout $name
+git merge origin/master
+git checkout $orig_head
+
