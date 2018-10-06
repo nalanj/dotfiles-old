@@ -1,6 +1,6 @@
-function nonzero_return() {
-	RETVAL=$?
-	[ $RETVAL -ne 0 ] && echo "$RETVAL"
+function mail_count() {
+  count=`find ~/Mail/Gmail/INBOX/ -type f | grep -vE ',[^,]*S[^,]*$' | wc -l`
+  [ $count -ne 0 ] && echo "@$count"
 }
 
 # get current branch in git repo
@@ -50,4 +50,4 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\n[\t] \w \`parse_git_branch\` \`nonzero_return\` \n> "
+export PS1="\n[\t] \w \`parse_git_branch\` \`mail_count\` \n> "
