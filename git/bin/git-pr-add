@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Creates a new PR branch and adds the given rev to it
+# Adds the given rev to the given PR
 
 set -e
 
 if [[ "$#" -ne 2 ]]; then
-    echo "Usage git pr [name] [rev]"
+    echo "Usage git pr-add [name] [rev]"
     exit
 fi
 
@@ -20,8 +20,12 @@ if [[ $changes -gt 0 ]]; then
   exit
 fi
 
-echo "* Creating PR branch $name"
-git branch $name origin/master --no-track
+echo "* Checkout out $rev"
+git checkout -q $name
 
-git-pr-add $1 $2
+echo "* Applying $rev"
+git cherry-pick $rev
+
+echo "* Back to $orig_head"
+git checkout -q $orig_head
 
