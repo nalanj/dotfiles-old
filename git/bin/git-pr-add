@@ -5,7 +5,7 @@
 set -e
 
 if [[ "$#" -ne 2 ]]; then
-    echo "Usage git pr-add [name] [rev]"
+    echo "Usage: git pr-add [name] [rev]"
     exit
 fi
 
