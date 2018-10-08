@@ -1,6 +1,8 @@
 function mail_count() {
-  count=`find ~/Mail/Gmail/INBOX/ -type f | grep -vE ',[^,]*S[^,]*$' | wc -l`
-  [ $count -ne 0 ] && echo "@$count"
+  if [[ -d ~/Mail/Gmail/INBOX/ ]]; then
+    count=`find ~/Mail/Gmail/INBOX/ -type f | grep -vE ',[^,]*S[^,]*$' | wc -l`
+    [ $count -ne 0 ] && echo "@$count"
+  fi
 }
 
 # get current branch in git repo
