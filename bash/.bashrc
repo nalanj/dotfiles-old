@@ -49,7 +49,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source $HOME/.bash_prompt
-
 export GPG_TTY=$(tty)
+export GOPATH=$HOME
 export PATH=$HOME/bin:$PATH
+source $HOME/.bash_prompt
