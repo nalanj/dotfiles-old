@@ -4,7 +4,7 @@
 
 set -e
 
-if [[ "$#" -ne 2 ]]; then
+if [[ "$#" -ne 1 ]]; then
     echo "Usage: git pr-rm [name]"
     exit
 fi
