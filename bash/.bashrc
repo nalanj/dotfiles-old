@@ -51,5 +51,5 @@ fi
 
 export GPG_TTY=$(tty)
 export GOPATH=$HOME
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/opt/go/bin:$PATH
 source $HOME/.bash_prompt
