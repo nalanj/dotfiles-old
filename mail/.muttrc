@@ -18,6 +18,8 @@ macro index,pager y \
     "<save-message>=[Gmail].All Mail<enter><enter>" \
     "Archive"
 
+macro index,pager \cb |urlview\n
+
 # main options
 set realname   = "Real Name"
 set from       = "user@gmail.com"
@@ -60,5 +62,5 @@ hdr_order from: to: cc: date: subject: # and in this order
 auto_view text/html
 
 # save html for last
-alternative_order text/plain text/enriched text/html
+alternative_order text/enriched text/html text/plain
 
