@@ -1,3 +1,5 @@
 # key bindings
 bind-key j down
 bind-key k up
+
+browser /usr/bin/firefox %u
