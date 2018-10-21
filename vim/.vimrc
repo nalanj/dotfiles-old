@@ -85,9 +85,6 @@ nmap ; :BufExplorerHorizontalSplit<CR>
 " find with leader t
 nmap <Leader>t :find<Space>
 
-" Map Gstatus
-nmap <Leader>gs :Gstatus<CR>
-
 " some vim-go stuff
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>gt <Plug>(go-test)
