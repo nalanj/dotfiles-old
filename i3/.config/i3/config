@@ -170,4 +170,3 @@ bar {
 
 # Start some initial apps
 exec --no-startup-id xsetroot -solid "#c8c8c8"
-exec --no-startup-id nm-applet
