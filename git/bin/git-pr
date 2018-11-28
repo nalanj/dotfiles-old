@@ -22,7 +22,5 @@ fi
 
 echo "* Creating PR branch $name"
 git branch $name origin/master --no-track
-#git branch -q --set-upstream-to origin/$1 $name
 
 git-pr-add $1 $2
-

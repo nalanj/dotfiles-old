@@ -5,6 +5,9 @@
   # Show unpushed
   un = log master ^origin/master --no-merges --pretty=oneline --abbrev-commit
 
+  # Remove merged
+  rmm = !git branch --merged master | grep -v '\\* master' | xargs -n 1 git branch -d
+
 [core]
   editor = vim
 

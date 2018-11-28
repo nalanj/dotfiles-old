@@ -6,6 +6,9 @@ set noerrorbells
 set showcmd
 set showmode
 
+" use a viminfo
+set viminfo=%,'50,\"100,:100,n~/.viminfo
+
 " more natural splits
 set splitbelow
 set splitright
@@ -114,3 +117,13 @@ autocmd BufNewFile,BufRead RakeImport set syntax=ruby
 
 " set path to $PWD/** to help with searching
 set path=$PWD/**
+
+" startify config
+let g:startify_lists = [
+  \ {'type': 'files', 'header': ['   MRU'] },
+  \ {'type': 'bookmarks', 'header': ['   Faves'] },
+\]
+let g:startify_bookmarks = [
+  \'~/.vimrc',
+\]
+let g:startify_change_to_vcs_root = 1
