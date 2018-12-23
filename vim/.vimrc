@@ -2,7 +2,9 @@ set nocompatible
 filetype off
 filetype plugin indent on
 
-set noerrorbells
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 set showcmd
 set showmode
 
@@ -17,11 +19,7 @@ set splitright
 set number relativenumber
 
 " put swap files elsewhere
-if has('unix')
-  set directory=$HOME/.vim/swap/
-elseif has('win32')
-  set directory=$HOME/vimfiles/swap/
-endif
+set directory=$HOME/tmp/
 
 " set tab width stuff
 set tabstop=2 shiftwidth=2
@@ -52,9 +50,9 @@ if has('mouse')
   set mouse=a
 endif
 
-syntax enable
-set background=light
-colorscheme PaperColor
+syntax on
+" set background=light
+" colorscheme PaperColor
 
 " Some gui specific settings
 if has("gui_running")
@@ -105,7 +103,7 @@ augroup go
 augroup END
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'PaperColor'
+"let g:lightline.colorscheme = 'PaperColor'
 
 " copy and paste
 vmap <C-c> "+y
