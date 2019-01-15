@@ -2,7 +2,7 @@ call plug#begin()
 
 Plug 'morhetz/gruvbox'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -90,7 +90,7 @@ endif
 
 syntax on
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
 
 " Some windows specific settings
 if has("win32")
@@ -157,8 +157,8 @@ augroup go
     \| command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline = {}
+"let g:lightline.colorscheme = 'gruvbox'
 
 " copy and paste
 vmap <C-c> "+y
