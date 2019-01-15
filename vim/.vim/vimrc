@@ -15,6 +15,8 @@ call plug#end()
 set nocompatible
 filetype off
 filetype plugin indent on
+set fileformat=unix
+set fileformats=unix,dos
 
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -94,6 +96,9 @@ colorscheme gruvbox
 if has("win32")
   set directory=$HOME/vimfiles/swap
   set shell=powershell
+  set shellcmdflag=-c
+  set shellquote=\"
+  set shellxquote=
 endif
 
 " Some gui specific settings
@@ -143,9 +148,10 @@ autocmd FileType go nmap <leader>gf <Plug>(go-test-func)
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports'
 let g:go_metalinter_autosave = 1
+
 augroup go
-  autocmd!
-  autocmd Filetype go
+ autocmd!
+ autocmd Filetype go
     \  command! -bang A call go#alternate#Switch(<bang>0, 'edit')
     \| command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
     \| command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -161,6 +167,9 @@ imap <C-v> <ESC>"+pa
 
 " RakeImport files syntax highlight as ruby
 autocmd BufNewFile,BufRead RakeImport set syntax=ruby
+
+" vimrc files use vim syntax
+autocmd BufNewFile,BufRead vimrc set syntax=vim
 
 " set path to $PWD/** to help with searching
 set path=$PWD/**

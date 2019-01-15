@@ -12,10 +12,8 @@
   editor = vim
 
 [user]
-	email = alan.johnson@gmail.com
+  email = alan.johnson@gmail.com
   name = Alan Johnson
 
 [credential]
 	helper = store
-[commit]
-	gpgsign = true
