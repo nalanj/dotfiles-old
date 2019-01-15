@@ -53,3 +53,6 @@ export GPG_TTY=$(tty)
 export GOPATH=$HOME
 export PATH=$HOME/bin:/opt/go/bin:$PATH
 source $HOME/.bash_prompt
+
+export LS_COLORS='ow=01;36;40'
+
