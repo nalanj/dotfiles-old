@@ -1,8 +1,8 @@
 call plug#begin()
 
-Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'jlanzarotta/bufexplorer'
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
@@ -26,6 +26,10 @@ set showmode
 
 " use a viminfo
 set viminfo='10,\"100,:100,%,n~/.viminfo
+
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " resume cursor position
 function! ResCur()
@@ -90,7 +94,7 @@ endif
 
 syntax on
 set background=dark
-" colorscheme gruvbox
+colorscheme solarized
 
 " Some windows specific settings
 if has("win32")
@@ -157,8 +161,7 @@ augroup go
     \| command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
-"let g:lightline = {}
-"let g:lightline.colorscheme = 'gruvbox'
+let g:lightline = {}
 
 " copy and paste
 vmap <C-c> "+y
