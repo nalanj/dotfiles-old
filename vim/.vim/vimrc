@@ -162,6 +162,7 @@ augroup go
 augroup END
 
 let g:lightline = {}
+let g:lightline.colorscheme = 'solarized'
 
 " copy and paste
 vmap <C-c> "+y
