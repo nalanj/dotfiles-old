@@ -129,9 +129,7 @@ nmap <leader>q :bd<cr>
 imap <C-c> nop
 
 " set 80 character line limit
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
+set colorcolumn=80
 
 " Set whitespace to show up selectively
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
@@ -161,8 +159,7 @@ augroup go
     \| command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'solarized'
+let g:lightline = { 'colorscheme': 'solarized' }
 
 " copy and paste
 vmap <C-c> "+y

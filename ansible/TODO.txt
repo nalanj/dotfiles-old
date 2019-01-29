@@ -1,0 +1,5 @@
+- Link src to OneDrive source dir
+- Figure out how to generate gpg key on first run
+- Link journal.txt to OneDrive journal
+- Install vim config
+- Install bash config
