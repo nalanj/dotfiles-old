@@ -1,5 +1,5 @@
-vim/.vim/swap/*
-vim/.vim/plugged/*
-vim/.vim/.netrwhist
+vim/swap/*
+vim/plugged/*
+vim/.netrwhist
 
 fish/.config/fish/fishd*

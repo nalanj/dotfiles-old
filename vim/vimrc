@@ -29,6 +29,7 @@ set viminfo='10,\"100,:100,%,n~/.viminfo
 
 if !has('gui_running')
   set t_Co=256
+  set termguicolors
 endif
 
 " resume cursor position

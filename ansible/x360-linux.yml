@@ -17,3 +17,12 @@
             name: /tmp/bitwarden.rpm
             state: present
       become: yes
+
+
+    # Vim config
+    - file:
+            src: ~/src/github.com/nalanj/dotfiles/vim
+            dest: ~/.vim
+            state: link
+    - command: vim +'PlugInstall --sync' +qa
+
