@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - package: name=vim state=present
+      become: yes
+
+    - package: name=gnome-tweaks state=present
+      become: yes
+
+    - package: name=libselinux-python state=present
+      become: yes
+
+    - get_url:
+            url: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm
+            dest: /tmp/bitwarden.rpm
+    - dnf:
+            name: /tmp/bitwarden.rpm
+            state: present
+      become: yes
