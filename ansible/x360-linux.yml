@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   tasks:
+
     - package: name=vim state=present
       become: yes
     - package: name=gnome-tweaks state=present
@@ -9,6 +10,7 @@
       become: yes
     - package: name=speedcrunch state=present
       become: yes
+    - flatpak: name=org.telegram.desktop
 
     # Bitwarden
     - get_url:
