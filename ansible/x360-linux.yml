@@ -26,3 +26,9 @@
             state: link
     - command: vim +'PlugInstall --sync' +qa
 
+    # Fonts
+    - file:
+        src: ~/src/github.com/nalanj/dotfiles/fonts
+        dest: ~/.fonts
+        state: link
+    - command: fc-cache -f -v
