@@ -3,21 +3,41 @@
   tasks:
     - package: name=vim state=present
       become: yes
-
     - package: name=gnome-tweaks state=present
       become: yes
-
     - package: name=libselinux-python state=present
       become: yes
-
-    - get_url:
-            url: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm
-            dest: /tmp/bitwarden.rpm
-    - dnf:
-            name: /tmp/bitwarden.rpm
-            state: present
+    - package: name=speedcrunch state=present
       become: yes
 
+    # Bitwarden
+    - get_url:
+        url: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm
+        dest: /tmp/bitwarden.rpm
+    - dnf:
+        name: /tmp/bitwarden.rpm
+        state: present
+      become: yes
+
+    # Zotero
+    - file: path=/opt/zotero state=directory
+      become: yes
+    - get_url:
+        url: https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=5.0.60
+        dest: /tmp/zotero.tar.bz2
+      register: zotero_download
+    - unarchive:
+        src: /tmp/zotero.tar.bz2
+        dest: /opt/zotero
+      become: yes
+      when: zotero_download is changed
+    - command: /opt/zotero/Zotero_linux-x86_64/set_launcher_icon
+      become: yes
+    - file:
+        src: /opt/zotero/Zotero_linux-x86_64/zotero.desktop
+        dest: /usr/share/applications/zotero.desktop
+        state: link
+      become: yes
 
     # Vim config
     - file:
