@@ -1,0 +1,27 @@
+#!/bin/bash
+set -ex
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
+  mutt w3m stow
+
+flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
+  org.zotero.Zotero
+
+# Symlink vim config
+stow -d $DIR/ -t ~ vim
+vim +'PlugInstall --sync' +qa
+
+# Symlink bash config
+stow -d $DIR/ -t ~ bash
+
+# Link fonts
+if [ ! -e ~/Downloads/plex.zip ]
+then
+  curl -L -o ~/Downloads/plex.zip https://github.com/IBM/plex/releases/download/v1.2.2/OpenType.zip
+  unzip ~/Downloads/plex.zip -d ~/Downloads
+  mkdir -p ~/.fonts/
+  cp ~/Downloads/OpenType/IBM-Plex-Mono/*.otf ~/.fonts/
+fi
+fc-cache -f
