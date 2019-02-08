@@ -61,6 +61,16 @@
             state: link
     - command: vim +'PlugInstall --sync' +qa
 
+    # .bashrc
+    - file:
+        src: ~/src/github.com/nalanj/dotfiles/bash/.bashrc
+        dest: ~/.bashrc
+        state: link
+    - file:
+        src: ~/src/github.com/nalanj/dotfiles/bash/.bash_prompt
+        dest: ~/.bash_prompt
+        state: link
+
     # Fonts
     - file:
         src: ~/src/github.com/nalanj/dotfiles/fonts
