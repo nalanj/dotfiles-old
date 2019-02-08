@@ -10,6 +10,19 @@
       become: yes
     - package: name=speedcrunch state=present
       become: yes
+    - package: name=isync state=present
+      become: yes
+    - package: name=msmtp state=present
+      become: yes
+    - package: name=mutt state=present
+      become: yes
+    - package: name=w3m state=present
+      become: yes
+    - package: name=gnome-keyring state=present
+      become: yes
+    - package: name=w3m state=present
+      become: yes
+
     - flatpak: name=org.telegram.desktop
 
     # Bitwarden
@@ -54,3 +67,5 @@
         dest: ~/.fonts
         state: link
     - command: fc-cache -f -v
+
+    # TODO: mbsync, msmtp, and mutt, including systemd timer

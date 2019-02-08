@@ -58,9 +58,9 @@ set backupdir=$HOME/.vim/swap
 set undodir=$HOME/.vim/swap
 
 if has("win32")
-  set directory=$HOME/vimfiles/swap
-  set backupdir=$HOME/vimfiles/swap
-  set undodir=$HOME/vimfiles/swap
+set directory=$HOME/vimfiles/swap
+set backupdir=$HOME/vimfiles/swap
+set undodir=$HOME/vimfiles/swap
 endif
 
 
@@ -90,7 +90,7 @@ set wrap
 set textwidth=79
 
 if has('mouse')
-  set mouse=a
+set mouse=a
 endif
 
 syntax on
@@ -99,23 +99,23 @@ colorscheme solarized
 
 " Some windows specific settings
 if has("win32")
-  set directory=$HOME/vimfiles/swap
-  set shell=powershell
-  set shellcmdflag=-c
-  set shellquote=\"
-  set shellxquote=
+set directory=$HOME/vimfiles/swap
+set shell=powershell
+set shellcmdflag=-c
+set shellquote=\"
+set shellxquote=
 endif
 
 " Some gui specific settings
 if has("gui_running")
-  set guifont=IBM\ Plex\ Mono:h14
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions-=l
-  set guioptions-=L
-  set guioptions-=r
-  set guioptions-=R
-  set lines=999 columns=999
+set guifont=IBM\ Plex\ Mono:h14
+set guioptions-=T
+set guioptions-=m
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set lines=999 columns=999
 endif
 
 let mapleader = ","
@@ -137,11 +137,12 @@ set listchars=tab:\ \             " a tab should display as "  ", trailing white
 set listchars+=trail:~            " show trailing spaces as dots
 set list
 
-" list buffers with ;
-nmap ; :BufExplorerHorizontalSplit<CR>
-
 " find with leader t
 nmap <Leader>t :find<Space>
+
+" buffer back and forward with leader < and leader >
+nmap <leader>> :bn<cr>
+nmap <leader>< :bp<cr>
 
 " some vim-go stuff
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
