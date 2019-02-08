@@ -1,0 +1,28 @@
+#CertificateFile ~/.cert/mail.servername.pem
+
+CopyArrivalDate yes
+
+IMAPAccount fastmail
+Host imap.fastmail.com
+SSLType IMAPS
+SSLVersions TLSv1.2
+User nalanj@fastmail.com
+PassCmd "secret-tool lookup email nalanj@fastmail.com"
+
+IMAPStore fastmail-remote
+Account fastmail
+
+MaildirStore fastmail-local
+# The trailing "/" is important
+Path ~/.mail/fastmail/
+Inbox ~/.mail/fastmail/INBOX
+Flatten .
+
+Channel fastmail
+Master :fastmail-remote:
+Slave :fastmail-local:
+Patterns *
+Expunge Both
+SyncState *
+Sync All
+Create Both

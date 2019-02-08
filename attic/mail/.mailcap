@@ -1,3 +1,0 @@
-text/html; w3m -I %{charset} -T text/html ; copiousoutput;
-application/pdf; /usr/bin/zathura %s; copiousoutput;
-image/*; /usr/bin/mirage %s; copiousoutput;

@@ -2,31 +2,30 @@ set mbox_type   = Maildir
 set sendmail    = /usr/bin/msmtp
 set sendmail_wait = 0
 
-set folder      = ~/Mail/Gmail
+set folder      = ~/.mail/fastmail
 set spoolfile   = "+INBOX"
-set mbox        = "+[Gmail].All Mail"
-set postponed   = "+[Gmail].Drafts"
-unset record
+set mbox        = "+Archive"
+set postponed   = "+Drafts"
+set record = "+Sent"
 
 mailboxes +INBOX
 
 macro index,pager S \
-    "<save-message>+[Gmail].Spam<enter>" \
+    "<save-message>+Spam<enter>" \
     "mark message as spam"
 
 macro index,pager y \
-    "<save-message>=[Gmail].All Mail<enter><enter>" \
+    "<save-message>=Archive<enter><enter>" \
     "Archive"
 
 macro index,pager \cb |urlview\n
 
 # main options
-set realname   = "Real Name"
-set from       = "user@gmail.com"
+set realname   = "Alan Johnson"
+set from       = "nalanj@fastmail.com"
 set mail_check = 0
 set envelope_from
 
-unset move           # gmail does that
 set delete           # don't ask, just do
 unset confirmappend  # don't ask, just do!
 set quit             # don't ask, just do!!
