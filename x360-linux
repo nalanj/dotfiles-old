@@ -29,3 +29,6 @@ then
   cp ~/Downloads/OpenType/IBM-Plex-Mono/*.otf ~/.fonts/
 fi
 fc-cache -f
+
+# Install doctl
+go get -u github.com/digitalocean/doctl/cmd/doctl
