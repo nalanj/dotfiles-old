@@ -7,10 +7,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 stow -d $DIR/ -t ~ home
 
 sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
-  mutt w3m stow
+  mutt w3m stow ykpers
 
 flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
   org.zotero.Zotero
+
+# copy u2f rules
+sudo cp $DIR/etc/70-u2f.rules /etc/udev/rules.d/70-u2f.rules
+sudo udevadm control --reload
+sudo udevadm trigger
 
 # Symlink vim config
 vim +'PlugInstall --sync' +qa
