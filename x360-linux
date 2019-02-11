@@ -3,6 +3,9 @@ set -ex
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+# Symlink home
+stow -d $DIR/ -t ~ home
+
 sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
   mutt w3m stow
 
@@ -10,11 +13,7 @@ flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
   org.zotero.Zotero
 
 # Symlink vim config
-stow -d $DIR/ -t ~ vim
 vim +'PlugInstall --sync' +qa
-
-# Symlink bash config
-stow -d $DIR/ -t ~ bash
 
 # Link fonts
 if [ ! -e ~/Downloads/plex.zip ]
@@ -25,6 +24,3 @@ then
   cp ~/Downloads/OpenType/IBM-Plex-Mono/*.otf ~/.fonts/
 fi
 fc-cache -f
-
-# Configure mail
-stow -d $DIR/ -t ~ mail

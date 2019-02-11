@@ -93,29 +93,18 @@ if has('mouse')
 set mouse=a
 endif
 
-syntax on
-set background=dark
-colorscheme solarized
-
-" Some windows specific settings
-if has("win32")
-set directory=$HOME/vimfiles/swap
-set shell=powershell
-set shellcmdflag=-c
-set shellquote=\"
-set shellxquote=
-endif
+syntax off
 
 " Some gui specific settings
 if has("gui_running")
-set guifont=IBM\ Plex\ Mono:h14
-set guioptions-=T
-set guioptions-=m
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set lines=999 columns=999
+  set guifont=IBM\ Plex\ Mono:h14
+  set guioptions-=T
+  set guioptions-=m
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=R
+  set lines=999 columns=999
 endif
 
 let mapleader = ","
