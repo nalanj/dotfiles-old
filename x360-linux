@@ -32,3 +32,6 @@ fc-cache -f
 
 # Install doctl
 go get -u github.com/digitalocean/doctl/cmd/doctl
+
+# Install dopy
+sudo pip install dopy

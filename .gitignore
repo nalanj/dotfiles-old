@@ -1,3 +1,6 @@
 home/.vim/swap/*
 home/.vim/plugged/*
 home/.vim/.netrwhist
+
+go.mod
+go.sum

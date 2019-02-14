@@ -1,0 +1,44 @@
+#!/bin/bash
+
+function usage {
+  echo "Usage: git share [branch-name] [rev]"
+  exit 1
+}
+
+[[ $# -ne 2 ]] && usage
+
+name=$1
+
+rev=$2
+rev_parsed=$(git rev-parse "$rev")
+
+orig_pwd=$(pwd)
+root=$(git rev-parse --show-toplevel)
+head=$(git rev-parse --abbrev-ref HEAD)
+
+function cleanup {
+  git checkout -q --force "$head"
+  git branch -D "$name"
+  cd "$orig_pwd"
+}
+trap cleanup EXIT
+
+cd "$root"
+
+changes=$(git status -s | grep -c "[^ \\n\\t]")
+if [ "$changes" -gt 0 ]
+then
+  echo "Cannot proceed with pending changes. Exiting."
+  exit 1
+fi
+
+# check if ref exists already
+ref_count=$(git show-ref refs/heads/"$name" |  wc -l)
+if [ "$ref_count" -eq 0 ]
+then
+  git branch "$name" origin/master --no-track
+fi
+
+git checkout -q "$name" || exit 1
+git cherry-pick "$rev_parsed" || exit 1
+git push origin "$name" || exit 1
