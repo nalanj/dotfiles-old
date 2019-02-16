@@ -1,0 +1,26 @@
+[alias]
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  s = status -s
+
+  # Show unpushed
+  un = log master ^origin/master --no-merges --pretty=oneline --abbrev-commit
+
+  # Remove merged
+  rmm = !git branch --merged master | grep -v '\\* master' | xargs -n 1 git branch -d
+
+[core]
+  editor = vim
+
+[credential]
+  helper = /usr/libexec/git-core/git-credential-libsecret
+
+[user]
+	name = Alan Johnson
+	email = nalanj@fastmail.com
+  signingkey = 12336982
+
+[gpg]
+  program = gpg2
+
+[commit]
+	gpgsign = true

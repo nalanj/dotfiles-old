@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# Lists prs
-
-set -e
-
-git branch -vv --list pr/*
-
