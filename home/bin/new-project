@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+project=$1
+
+dropbox_path=~/Dropbox/src/"$project"
+local_path=~/src/"$project"
+
+mkdir -p "$dropbox_path"
+git init --bare "$dropbox_path"
+git init "$local_path"
+cd "$local_path"
+git remote add origin "$dropbox_path"
