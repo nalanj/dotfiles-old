@@ -10,7 +10,7 @@ sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
   mutt w3m stow ykpers trash-cli
 
 flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
-  org.zotero.Zotero
+  org.zotero.Zotero com.valvesoftware.Steam
 
 # copy u2f rules
 sudo cp $DIR/etc/70-u2f.rules /etc/udev/rules.d/70-u2f.rules
