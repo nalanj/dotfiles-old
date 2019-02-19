@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 stow -d $DIR/ -t ~ home
 
 sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
-  mutt w3m stow ykpers trash-cli
+  mutt w3m stow ykpers trash-cli openscad
 
 flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
   org.zotero.Zotero
