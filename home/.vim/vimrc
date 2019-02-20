@@ -18,6 +18,9 @@ filetype plugin indent on
 set fileformat=unix
 set fileformats=unix,dos
 
+set autoindent
+set smartindent
+
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
