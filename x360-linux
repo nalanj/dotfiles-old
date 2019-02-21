@@ -6,7 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Symlink home
 stow -d $DIR/ -t ~ home
 
-sudo dnf install vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
+sudo dnf install -y vim gnome-tweaks libselinux-python speedcrunch isync msmtp \
   mutt w3m stow ykpers trash-cli openscad slic3r-prusa3d arduino
 
 flatpak install -y flathub org.telegram.desktop com.bitwarden.desktop \
