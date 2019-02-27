@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
@@ -31,8 +31,9 @@ set showmode
 set viminfo='10,\"100,:100,%,n~/.viminfo
 
 if !has('gui_running')
-  set t_Co=256
-  set termguicolors
+  " set t_Co=256
+  set t_Co=16
+  " set termguicolors
 endif
 
 " resume cursor position
@@ -54,6 +55,10 @@ set splitright
 
 " show line number
 set number relativenumber
+
+set background=light
+colorscheme PaperColor
+let g:lightline = {'colorscheme': 'PaperColor'}
 
 " put annoying files elsewhere
 set directory=$HOME/.vim/swap
@@ -152,8 +157,6 @@ augroup go
     \| command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
     \| command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
-
-let g:lightline = { 'colorscheme': 'solarized' }
 
 " copy and paste
 vmap <C-c> "+y
