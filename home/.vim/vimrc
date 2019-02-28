@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'altercation/vim-colors-solarized'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
@@ -31,9 +31,8 @@ set showmode
 set viminfo='10,\"100,:100,%,n~/.viminfo
 
 if !has('gui_running')
-  " set t_Co=256
-  set t_Co=16
-  " set termguicolors
+  set t_Co=256
+  set termguicolors
 endif
 
 " resume cursor position
@@ -56,9 +55,10 @@ set splitright
 " show line number
 set number relativenumber
 
-set background=light
-colorscheme PaperColor
-let g:lightline = {'colorscheme': 'PaperColor'}
+syntax enable
+set background=dark
+colorscheme solarized
+let g:lightline = {'colorscheme': 'solarized'}
 
 " put annoying files elsewhere
 set directory=$HOME/.vim/swap
@@ -100,8 +100,6 @@ set textwidth=79
 if has('mouse')
 set mouse=a
 endif
-
-syntax off
 
 " Some gui specific settings
 if has("gui_running")
