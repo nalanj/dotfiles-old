@@ -19,8 +19,8 @@
 	email = nalanj@fastmail.com
   signingkey = 12336982
 
-[gpg]
-  program = gpg2
+# [gpg]
+#  program = gpg2
 
-[commit]
-	gpgsign = true
+#[commit]
+#	gpgsign = true
