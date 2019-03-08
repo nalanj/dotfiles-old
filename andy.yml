@@ -1,12 +1,33 @@
 - hosts: andy
+  become: yes
   tasks:
+    - user:
+        name: nalanj
+        comment: Alan Johnson
+        groups: sudo
+      register: nalanj
+
     - name: install packages
       apt:
         name:
           - git
           - vim
-          - sshfs
-          - gnome-tweak-tool
           - stow
-        state: present
-      become: yes
+          - sshfs
+          - openscad
+          - slic3r-prusa
+          - flatpak
+          - gnome-tweak-tool
+
+    - name: add flathub
+      flatpak_remote:
+        name: flathub
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    - name: install flatpaks
+      flatpak:
+        name: "{{ item }}"
+      loop:
+        - org.telegram.desktop
+        - com.bitwarden.desktop
+        - org.zotero.Zotero
+        - org.gnome.Games
