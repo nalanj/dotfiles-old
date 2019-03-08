@@ -18,6 +18,13 @@
           - slic3r-prusa
           - flatpak
           - gnome-tweak-tool
+          - geary
+
+    - name: remove packages
+      apt:
+        name:
+          - evolution
+        state: absent
 
     - name: add flathub
       flatpak_remote:
