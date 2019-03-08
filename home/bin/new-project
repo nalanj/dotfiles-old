@@ -3,11 +3,11 @@ set -e
 
 project=$1
 
-dropbox_path=~/Dropbox/src/"$project"
+remote_path=share/git/"$project"
 local_path=~/src/"$project"
 
-mkdir -p "$dropbox_path"
-git init --bare "$dropbox_path"
+ssh -t nalanj@smalls.616c616e.com git init --bare "$remote_path"
+
 git init "$local_path"
 cd "$local_path"
-git remote add origin "$dropbox_path"
+git remote add origin nalanj@smalls.616c616e.com:$remote_path

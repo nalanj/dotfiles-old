@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs nalanj@smalls.616c616e.com:share/music/ ~/Music/share/
