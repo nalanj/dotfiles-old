@@ -24,6 +24,7 @@
       apt:
         name:
           - evolution
+          - gnome-music
         state: absent
 
     - name: add flathub
@@ -38,3 +39,4 @@
         - com.bitwarden.desktop
         - org.zotero.Zotero
         - org.gnome.Games
+        - com.spotify.Client

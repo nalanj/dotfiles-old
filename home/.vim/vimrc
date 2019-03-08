@@ -9,7 +9,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'fatih/vim-go'
 Plug 'jremmen/vim-ripgrep'
-Plug 'Townk/vim-autoclose'
+Plug 'cohama/lexima.vim'
 call plug#end()
 
 set nocompatible
