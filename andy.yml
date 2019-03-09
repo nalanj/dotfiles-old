@@ -1,11 +1,6 @@
 - hosts: andy
   become: yes
   tasks:
-    - user:
-        name: nalanj
-        comment: Alan Johnson
-        groups: sudo
-      register: nalanj
 
     - name: install packages
       apt:
@@ -20,6 +15,10 @@
           - gnome-tweak-tool
           - geary
           - curl
+          - apt-transport-https
+          - ca-certificates
+          - gnupg2
+          - software-properties-common
 
     - name: remove packages
       apt:
@@ -43,3 +42,25 @@
         - com.spotify.Client
         - org.gnome.FeedReader
 
+    # docker install
+    - name: install the docker apt key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        id: 0EBFCD88
+    - name: install the docker apt repo
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+        update_cache: true
+
+    - name: install docker
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+
+    - name: add alan
+      user:
+        name: nalanj
+        comment: Alan Johnson
+        groups: [sudo, docker]
