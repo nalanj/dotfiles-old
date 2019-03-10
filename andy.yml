@@ -8,7 +8,7 @@
 
   tasks:
     - name: install packages
-      apt:
+      dnf:
         name:
           - git
           - vim
@@ -16,22 +16,12 @@
           - sshfs
           - autofs
           - openscad
-          - slic3r-prusa
           - flatpak
           - gnome-tweak-tool
           - geary
           - curl
-          - apt-transport-https
-          - ca-certificates
           - gnupg2
-          - software-properties-common
-
-    - name: remove packages
-      apt:
-        name:
-          - evolution
-          - gnome-music
-        state: absent
+          - libselinux-python
 
     - name: add flathub
       flatpak_remote:
@@ -49,39 +39,38 @@
         - org.gnome.FeedReader
 
     # docker install
-    - name: install the docker apt key
-      apt_key:
-        url: https://download.docker.com/linux/debian/gpg
-        id: 0EBFCD88
-    - name: install the docker apt repo
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
-        update_cache: true
-
-    - name: install docker
-      apt:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-
-    - name: download micro
-      unarchive:
-        src: https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
-        dest: /opt
-        remote_src: yes
-        creates: /opt/micro-1.4.1/micro
-    - name: copy micro
-      file:
-        src: /opt/micro-1.4.1/micro
-        dest: /usr/local/bin/micro
-        state: link
-
+#    - name: install the docker apt key
+#      apt_key:
+#        url: https://download.docker.com/linux/debian/gpg
+#        id: 0EBFCD88
+#    - name: install the docker apt repo
+#      apt_repository:
+#        repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+#        update_cache: true
+#
+#    - name: install docker
+#      apt:
+#        name:
+#          - docker-ce
+#          - docker-ce-cli
+#          - containerd.io
+#
+#    - name: download micro
+#      unarchive:
+#        src: https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
+#        dest: /opt
+#        remote_src: yes
+#        creates: /opt/micro-1.4.1/micro
+#    - name: copy micro
+#      file:
+#        src: /opt/micro-1.4.1/micro
+#        dest: /usr/local/bin/micro
+#        state: link
+#
     - name: add alan
       user:
         name: nalanj
         comment: Alan Johnson
-        groups: [sudo, docker]
       register: nalanj
 
     - name: make autofs config dir
@@ -93,11 +82,11 @@
       copy:
         dest: /etc/auto.master.d/sshfs.autofs
         content: |
-          /media/nalanj /etc/auto.sshfs        uid={{ nalanj.uid }},gid={{ nalanj.uid }},--timeout=30,--ghost
+           /run/media/nalanj/sshfs /etc/auto.sshfs        uid={{ nalanj.uid }},gid={{ nalanj.uid }},--timeout=30,--ghost
       notify: restart autofs
     - name: create sshfs script
       copy:
         dest: /etc/auto.sshfs
         content: |
-          smalls -fstype=fuse,rw,nodev,nonempty,noatime,allow_other,max_read=65536 \:sshfs\#nalanj@smalls.616c616e.com\:/home/nalanj/share
+          smalls -fstype=fuse,rw,nodev,noatime,allow_other,max_read=65536 \:sshfs\#nalanj@smalls.616c616e.com\:/home/nalanj/share
       notify: restart autofs
