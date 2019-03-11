@@ -1,0 +1,69 @@
+- hosts: biggie
+  become: yes
+  tasks:
+    - name: install packages
+      dnf:
+        name:
+          - git
+          - vim-enhanced
+          - stow
+          - sshfs
+          - autofs
+          - openscad
+          - flatpak
+          - gnome-tweak-tool
+          - geary
+          - curl
+          - gnupg2
+          - libselinux-python
+
+    - name: add flathub
+      flatpak_remote:
+        name: flathub
+        flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+    - name: install flatpaks
+      flatpak:
+        name: "{{ item }}"
+      loop:
+        - org.telegram.desktop
+        - com.bitwarden.desktop
+        - org.zotero.Zotero
+        - org.gnome.Games
+        - com.spotify.Client
+        - org.gnome.FeedReader
+
+    # docker install
+#    - name: install the docker apt key
+#      apt_key:
+#        url: https://download.docker.com/linux/debian/gpg
+#        id: 0EBFCD88
+#    - name: install the docker apt repo
+#      apt_repository:
+#        repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+#        update_cache: true
+#
+#    - name: install docker
+#      apt:
+#        name:
+#          - docker-ce
+#          - docker-ce-cli
+#          - containerd.io
+#
+#    - name: download micro
+#      unarchive:
+#        src: https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
+#        dest: /opt
+#        remote_src: yes
+#        creates: /opt/micro-1.4.1/micro
+#    - name: copy micro
+#      file:
+#        src: /opt/micro-1.4.1/micro
+#        dest: /usr/local/bin/micro
+#        state: link
+#
+    - name: add alan
+      user:
+        name: nalanj
+        comment: Alan Johnson
+      register: nalanj
+
