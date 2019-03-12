@@ -1,10 +1,18 @@
 - hosts: andy
   become: yes
-  handlers:
-    - name: restart autofs
-      service:
-        name: autofs
-        state: restarted
+  tasks:
+    - name: add alan
+      user:
+        name: nalanj
+        comment: Alan Johnson
+      register: nalanj
+
+- hosts: andy
+  become: yes
+  roles:
+    - role: autofs
+      vars:
+        nalanj: "{{ nalanj }}"
 
   tasks:
     - name: install packages
@@ -67,26 +75,4 @@
 #        dest: /usr/local/bin/micro
 #        state: link
 #
-    - name: add alan
-      user:
-        name: nalanj
-        comment: Alan Johnson
-      register: nalanj
 
-    - name: make autofs config dir
-      file:
-        name: /etc/auto.master.d/
-        state: directory
-      notify: restart autofs
-    - name: create sshfs config
-      copy:
-        dest: /etc/auto.master.d/sshfs.autofs
-        content: |
-           /run/media/nalanj/sshfs /etc/auto.sshfs        uid={{ nalanj.uid }},gid={{ nalanj.uid }},--timeout=30,--ghost
-      notify: restart autofs
-    - name: create sshfs script
-      copy:
-        dest: /etc/auto.sshfs
-        content: |
-          smalls -fstype=fuse,rw,nodev,noatime,allow_other,max_read=65536 \:sshfs\#nalanj@smalls.616c616e.com\:/home/nalanj/share
-      notify: restart autofs
