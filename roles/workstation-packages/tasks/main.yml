@@ -13,6 +13,8 @@
       - curl
       - gnupg2
       - libselinux-python
+      - gnome-keyring
+      - seahorse
 
 - name: add flathub
   flatpak_remote:
