@@ -15,6 +15,7 @@
       - libselinux-python
       - gnome-keyring
       - seahorse
+      - adobe-source-code-pro-fonts
 
 - name: add flathub
   flatpak_remote:
