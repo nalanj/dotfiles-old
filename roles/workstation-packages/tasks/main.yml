@@ -31,4 +31,11 @@
     - org.gnome.Games
     - com.spotify.Client
     - org.gnome.FeedReader
+    - org.gnome.Fractal
 
+- name: install go
+  unarchive:
+    src: https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+    creates: /usr/local/go
