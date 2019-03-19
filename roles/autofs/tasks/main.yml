@@ -9,7 +9,7 @@
   copy:
     dest: /etc/auto.master.d/sshfs.autofs
     content: |
-       /run/media/nalanj/sshfs /etc/auto.sshfs        uid={{ nalanj.uid }},gid={{ nalanj.uid }},--timeout=30,--ghost
+       /media/sshfs /etc/auto.sshfs        uid={{ nalanj.uid }},gid={{ nalanj.uid }},--timeout=30,--ghost
   notify: restart autofs
 - name: create sshfs script
   copy:

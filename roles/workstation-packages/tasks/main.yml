@@ -16,6 +16,7 @@
       - gnome-keyring
       - seahorse
       - adobe-source-code-pro-fonts
+      - tmux
 
 - name: add flathub
   flatpak_remote:
