@@ -33,6 +33,7 @@
     - com.spotify.Client
     - org.gnome.FeedReader
     - org.gnome.Fractal
+    - org.gnome.Music
 
 - name: install go
   unarchive:
