@@ -17,6 +17,7 @@
       - seahorse
       - adobe-source-code-pro-fonts
       - tmux
+      - gnome-music
 
 - name: add flathub
   flatpak_remote:
@@ -33,7 +34,6 @@
     - com.spotify.Client
     - org.gnome.FeedReader
     - org.gnome.Fractal
-    - org.gnome.Music
 
 - name: install go
   unarchive:
