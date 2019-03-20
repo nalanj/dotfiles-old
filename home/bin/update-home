@@ -1,0 +1,7 @@
+#!/bin/bash
+
+stow -vv -d ~/src/dotfiles/ -t $HOME home
+
+ln -s /media/sshfs/smalls/music ~/Music/smalls
+
+
