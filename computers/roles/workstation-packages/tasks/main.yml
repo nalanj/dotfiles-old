@@ -18,6 +18,7 @@
       - adobe-source-code-pro-fonts
       - tmux
       - gnome-music
+      - fish
 
 - name: add flathub
   flatpak_remote:
