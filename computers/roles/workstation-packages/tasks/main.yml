@@ -35,7 +35,7 @@
     - com.spotify.Client
     - org.gnome.FeedReader
     - org.gnome.Fractal
-    - nz.scuttlebutt.Patchwork
+    - org.gnome.Genius
 
 - name: install go
   unarchive:
