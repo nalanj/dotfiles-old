@@ -19,6 +19,7 @@
       - tmux
       - gnome-music
       - fish
+      - task
 
 - name: add flathub
   flatpak_remote:
