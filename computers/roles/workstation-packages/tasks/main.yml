@@ -20,6 +20,7 @@
       - gnome-music
       - fish
       - task
+      - speedcrunch
 
 - name: add flathub
   flatpak_remote:
@@ -36,7 +37,6 @@
     - com.spotify.Client
     - org.gnome.FeedReader
     - org.gnome.Fractal
-    - org.gnome.Genius
 
 - name: install go
   unarchive:
