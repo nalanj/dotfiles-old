@@ -1,27 +1,31 @@
 - name: install packages
   dnf:
-    name:
-      - git
-      - vim
-      - stow
-      - sshfs
-      - autofs
-      - openscad
-      - flatpak
-      - gnome-tweak-tool
-      - geary
-      - curl
-      - gnupg2
-      - libselinux-python
-      - gnome-keyring
-      - seahorse
-      - adobe-source-code-pro-fonts
-      - tmux
-      - gnome-music
-      - fish
-      - task
-      - speedcrunch
-      - hub
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop:
+    - state: present
+      name:
+        - git
+        - vim
+        - stow
+        - sshfs
+        - autofs
+        - openscad
+        - flatpak
+        - gnome-tweak-tool
+        - geary
+        - curl
+        - gnupg2
+        - libselinux-python
+        - gnome-keyring
+        - seahorse
+        - adobe-source-code-pro-fonts
+        - tmux
+        - gnome-music
+        - fish
+        - task
+        - speedcrunch
+        - hub
 
 - name: add flathub
   flatpak_remote:
@@ -29,15 +33,13 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 - name: install flatpaks
   flatpak:
-    name: "{{ item }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   loop:
-    - org.telegram.desktop
-    - com.bitwarden.desktop
-    - org.zotero.Zotero
-    - org.gnome.Games
-    - com.spotify.Client
-    - org.gnome.FeedReader
-    - org.gnome.Fractal
+    - { name: org.telegram.desktop, state: present }
+    - { name: com.bitwarden.desktop, state: present }
+    - { name: org.gnome.Games, state: present }
+    - { name: com.spotify.Client, state: present }
 
 - name: install go
   unarchive:
