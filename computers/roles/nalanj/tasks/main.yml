@@ -1,0 +1,6 @@
+---
+- name: add alan
+  user:
+    name: nalanj
+    comment: Alan Johnson
+    shell: /usr/bin/fish

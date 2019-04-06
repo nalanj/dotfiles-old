@@ -1,18 +1,7 @@
 - hosts: biggie
   become: yes
-  tasks:
-    - name: add alan
-      user:
-        name: nalanj
-        comment: Alan Johnson
-        shell: /usr/bin/fish
-      register: nalanj
-
-- hosts: biggie
-  become: yes
   roles:
-    - role: autofs
-      vars:
-        nalanj: "{{ nalanj }}"
+    - nalanj
+    - autofs
     - workstation-packages
 
