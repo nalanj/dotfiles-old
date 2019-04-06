@@ -21,6 +21,7 @@
       - fish
       - task
       - speedcrunch
+      - hub
 
 - name: add flathub
   flatpak_remote:
