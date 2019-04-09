@@ -33,7 +33,7 @@ then
 fi
 
 # check if ref exists already
-ref_count=$(git show-ref refs/heads/"$name" |  wc -l)
+ref_count=$(git show-ref refs/remotes/origin/"$name" |  wc -l)
 if [ "$ref_count" -eq 0 ]
 then
   git branch "$name" origin/master --no-track
