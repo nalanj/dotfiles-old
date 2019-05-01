@@ -1,0 +1,2 @@
+   /media/sshfs /etc/auto.sshfs        uid=nalanj,gid=nalanj,--timeout=30,--ghost
+

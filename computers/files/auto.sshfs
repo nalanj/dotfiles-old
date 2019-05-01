@@ -1,0 +1,2 @@
+smalls -fstype=fuse,rw,nodev,noatime,allow_other,max_read=65536 \:sshfs\#nalanj@smalls.616c616e.com\:/home/nalanj/share
+
