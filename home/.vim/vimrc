@@ -178,3 +178,7 @@ let g:netrw_liststyle = 3
 
 " enable undo file
 set undofile
+
+" open and reload vimrc easily
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
