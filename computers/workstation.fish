@@ -1,12 +1,12 @@
 #!/usr/bin/fish
 
 # Make sure rpmfusion is installed
-dnf install -q \
+dnf install -q -y \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-(rpm -E %fedora).noarch.rpm \
   https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-(rpm -E %fedora).noarch.rpm
 
 # Install packages
-dnf install -q \
+dnf install -q -y \
   git \
   vim \
   stow \
@@ -29,7 +29,8 @@ dnf install -q \
   speedcrunch \
   hub \
   compat-ffmpeg28 \
-  ffmpeg-libs
+  ffmpeg-libs \
+  python3-devel
 
 # Install flatpaks
 flatpak install flathub \
@@ -51,3 +52,6 @@ mkdir -p /etc/auto.master.d/
 cp files/sshfs.autofs /etc/auto.master.d/sshfs.autofs
 cp files/auto.sshfs /etc/auto.sshfs
 systemctl restart autofs
+
+# Install sam
+sudo -u nalanj pip3 install --user aws-sam-cli
