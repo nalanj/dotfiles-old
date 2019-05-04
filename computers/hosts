@@ -1,2 +1,2 @@
-andy ansible_connection=local
-biggie ansible_connection=local
+andy ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+biggie ansible_connection=local ansible_python_interpreter=/usr/bin/python3
