@@ -1,0 +1,12 @@
+---
+- name: install syncthing
+  dnf:
+    name: syncthing
+    state: present
+  notify: restart syncthing
+
+- name: enable syncthing
+  systemd:
+    name: syncthing@nalanj.service
+    state: started
+    enabled: yes
