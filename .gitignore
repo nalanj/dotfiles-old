@@ -2,5 +2,7 @@ home/.vim/swap/*
 home/.vim/plugged/*
 home/.vim/.netrwhist
 
+home/.config/fish/fish_variables
+
 go.mod
 go.sum
