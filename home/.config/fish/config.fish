@@ -3,3 +3,4 @@ set -gx EDITOR /usr/bin/vim
 set -gx GO111MODULE on
 set -gx GOROOT /usr/local/go
 
+alias vim "gvim -v"

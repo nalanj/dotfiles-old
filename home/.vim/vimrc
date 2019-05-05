@@ -67,13 +67,6 @@ set directory=$HOME/.vim/swap
 set backupdir=$HOME/.vim/swap
 set undodir=$HOME/.vim/swap
 
-if has("win32")
-set directory=$HOME/vimfiles/swap
-set backupdir=$HOME/vimfiles/swap
-set undodir=$HOME/vimfiles/swap
-endif
-
-
 " set tab width stuff
 set tabstop=2 shiftwidth=2
 set smarttab
