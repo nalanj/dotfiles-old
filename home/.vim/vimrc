@@ -7,7 +7,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
 Plug 'jremmen/vim-ripgrep'
@@ -173,5 +172,10 @@ let g:netrw_liststyle = 3
 set undofile
 
 " open and reload vimrc easily
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" open quickfix when it has content
+nnoremap <leader>m :w<cr>:make<cr>
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
