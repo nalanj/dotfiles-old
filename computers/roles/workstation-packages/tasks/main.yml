@@ -12,6 +12,7 @@
   loop:
     - state: present
       name:
+        - "@Development Tools"
         - git
         - vim
         - gvim
